@@ -1,0 +1,2 @@
+mobilogics-plugin-barcodesdk
+============================
