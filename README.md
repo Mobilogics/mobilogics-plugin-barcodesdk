@@ -1,2 +1,2 @@
-mobilogics-plugin-barcodesdk
+Mobilogics Barcode SDK Phonegap Plugin
 ============================
