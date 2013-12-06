@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="tw.com.mobilogics.sdk.barcode.plugins.phonegap"
+        version="1.0">
+    <name>Mobilogics Barcode SDK</name>
+    <description>Mobilogics Barcode SDK Plugin</description>
+    <license>Creative Commons Attribution-ShareAlike 4.0 International</license>
+    <keywords>mobilogics, barcode</keywords>
+    <repo>https://github.com/Mobilogics/mobilogics-plugin-barcodesdk.git</repo>
+    <issue>https://github.com/Mobilogics/mobilogics-plugin-barcodesdk/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.2.0" />
+    </engines>
+
+
+    <js-module src="www/MobilogicsScanner.js" name="MobilogicsScanner">
+        <clobbers target="MobilogicsScanner" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MLBarcodeScannerPlugIn">
+                <param name="ios-package" value="MLBarcodeScannerPlugIn" onload="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/MLBarcodeScannerPlugIn.h" target-dir="MobilogicsScanner"/>
+        <source-file src="src/ios/MLBarcodeScannerPlugIn.m" target-dir="MobilogicsScanner"/>
+
+        <!-- frameworks -->
+        <framework src="ExternalAccessory.framework" />
+        <framework src="libstdc++.6.dylib" />
+        <framework src="/Library/Frameworks/Mobilogics.framework/Barcode.framework" custom="true" />
+        <framework src="/Library/Frameworks/Mobilogics.framework/MobilogicsCore.framework" custom="true" />
+
+    </platform>
+
+</plugin>
